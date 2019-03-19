@@ -26,7 +26,7 @@ namespace aspnetcore_graphql
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IDependencyResolver>(s=>new FuncDependencyResolver(s.GetRequiredService));
+            services.AddSingleton<IDependencyResolver>(s => new FuncDependencyResolver(s.GetRequiredService));
 
             services.AddSingleton<IDocumentExecuter, DocumentExecuter>();
             services.AddSingleton<IDocumentWriter, DocumentWriter>();
@@ -35,7 +35,9 @@ namespace aspnetcore_graphql
             services.AddSingleton<ISchema, RootScheme>()
             .AddSingleton<RootQuery>()
             .AddSingleton<OrderType>()
-            .AddSingleton<OrderStatusEnum>();
+            .AddSingleton<OrderStatusEnum>()
+            .AddSingleton<UserType>()
+            .AddSingleton<OrderItemType>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
@@ -53,11 +55,6 @@ namespace aspnetcore_graphql
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            // app.Run(async (context) =>
-            // {
-            //     await context.Response.WriteAsync("Hello World!");
-            // });
 
             // add http for Schema at default url /graphql
             app.UseGraphQL<ISchema>("/graphql");
