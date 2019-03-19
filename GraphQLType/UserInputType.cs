@@ -7,7 +7,7 @@ namespace aspnetcore_graphql.GraphQLTypes
     {
         public UserInputType()
         {
-            Name = "User";
+            Name = "UserInput";
 
             Field(d => d.Id);
             Field(d => d.Name);

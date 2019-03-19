@@ -9,8 +9,8 @@ namespace aspnetcore_graphql.GraphQLTypes
         {
             Name = "OrderInput";
             
-            Field<UserInputType>(nameof(Order.User));
-            Field<ListGraphType<OrderItemInputType>>(nameof(Order.OrderItems));
+            Field<UserInputType>(nameof(Order.User), "The user of the order.");
+            Field<ListGraphType<OrderItemInputType>>(nameof(Order.OrderItems), "The orderItems of the order.");
         }
     }
 }

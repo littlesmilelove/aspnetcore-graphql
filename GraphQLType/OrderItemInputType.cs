@@ -7,7 +7,7 @@ namespace aspnetcore_graphql.GraphQLTypes
     {
         public OrderItemInputType()
         {
-            Name = "OrderItem";
+            Name = "OrderItemInput";
 
             Field(d => d.Id);
             Field(d => d.Name);
