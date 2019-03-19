@@ -34,7 +34,8 @@ namespace aspnetcore_graphql
             services.AddSingleton<OrderService>();
             services.AddSingleton<ISchema, RootScheme>()
             .AddSingleton<RootQuery>()
-            .AddSingleton<OrderType>();
+            .AddSingleton<OrderType>()
+            .AddSingleton<OrderStatusEnum>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 

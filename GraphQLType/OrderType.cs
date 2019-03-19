@@ -11,8 +11,13 @@ namespace aspnetcore_graphql.GraphQLTypes
 
             Field(d=>d.Id).Description("The id of the order.");
             Field(d=>d.Amount).Description("The amount of the order.");
-            // Field(d=>d.Status).Description("The status of the order.");
             Field(d=>d.CreateTime).Description("The createTime of the order.");
+
+            Field<OrderStatusEnum>("status", "The status of the order.");
         }
+    }
+
+    public class OrderStatusEnum: EnumerationGraphType<OrderStatus>
+    {
     }
 }
