@@ -82,5 +82,16 @@ namespace aspnetcore_graphql.Services
         {
             return _orders.FirstOrDefault(d => d.Id == Id);
         }
+
+        public Order AddOrder(Order order)
+        {
+            order.Id = new Random().Next(100);
+            order.CreateTime = DateTime.Now;
+            order.Status = OrderStatus.Active;
+
+            _orders.Add(order);
+
+            return order;
+        }
     }
 }
